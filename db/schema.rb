@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_18_082715) do
+ActiveRecord::Schema.define(version: 2020_08_18_092356) do
 
   create_table "associated_labels", force: :cascade do |t|
     t.integer "issue_id", null: false
@@ -40,6 +40,15 @@ ActiveRecord::Schema.define(version: 2020_08_18_082715) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["issue_id"], name: "index_comments_on_issue_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.string "image_url", null: false
+    t.string "imageable_type", null: false
+    t.integer "imageable_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id"
   end
 
   create_table "issues", force: :cascade do |t|

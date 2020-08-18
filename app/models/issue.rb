@@ -11,6 +11,8 @@
 #  updated_at :datetime         not null
 #
 class Issue < ApplicationRecord
+  include Imageable
+  
   belongs_to :user
 
   has_many :comments

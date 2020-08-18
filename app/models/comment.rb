@@ -10,6 +10,8 @@
 #  updated_at :datetime         not null
 #
 class Comment < ApplicationRecord
+  include Imageable
+
   belongs_to :user
   belongs_to :issue
 end
